@@ -1,16 +1,7 @@
-import Image from "next/image";
-import { Be_Vietnam_Pro, Sorts_Mill_Goudy } from "next/font/google";
+import { redirect } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
-const titles = Sorts_Mill_Goudy({
-  weight: "400",
-  subsets: ["latin"],
-});
-
-const texts = Be_Vietnam_Pro({
-  weight: "400",
-  subsets: ["latin"],
-});
-
-export default function Home() {
-  return <main className=""></main>;
+// This page only renders when the app is built statically (output: 'export')
+export default function RootPage() {
+  redirect(`/${routing.defaultLocale}`);
 }

@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Be_Vietnam_Pro, Sorts_Mill_Goudy } from "next/font/google";
+import { text } from "stream/consumers";
 
 const titles = Sorts_Mill_Goudy({
   weight: "400",
@@ -12,34 +16,22 @@ const texts = Be_Vietnam_Pro({
 });
 
 export default function ExampleComponent() {
+  const t = useTranslations("Home");
+
   return (
     <>
-      <div className="bg-[#E8E9E8] w-[25rem] h-[12rem] rounded-[1.75rem] px-5 py-5 mt-10 mx-10">
-        <h4 className={`${titles.className} text-[#202020] text-4xl`}>
-          Lorem Ipsum
+      <div className="bg-main dark:bg-d-main w-[25rem] h-[12rem] rounded-[1.75rem] px-5 py-5 mt-10 mx-10">
+        <h4
+          className={`${titles.className} text-text-secondary dark:text-text-m-white text-4xl`}
+        >
+          Mentally
         </h4>
-        <p className={`${texts.className} text-[#676767] text-sm`}>
-          <span className="text-[#00B3EE]">Lorem ipsum</span>, dolor sit amet
-          consectetur adipisicing elit. Aliquam officiis sequi incidunt{" "}
-          <span className="text-[#00B3EE]">libero deserunt</span>, nam
-          consequuntur voluptatibus{" "}
-          <span className="text-[#00B3EE]">necessitatibus quibusdam</span>{" "}
-          accusantium deleniti, architecto odio labore dolor quos ab eum
-          molestias dolorem?
-        </p>
-      </div>
-      <div className="bg-[#111111] w-[25rem] h-[12rem] rounded-[1.75rem] px-5 py-5 mt-10 mx-10">
-        <h4 className={`${titles.className} text-[#FFFFFF] text-4xl`}>
-          Lorem Ipsum
-        </h4>
-        <p className={`${texts.className} text-[#8B8D98] text-sm`}>
-          <span className="text-[#00B3EE]">Lorem ipsum</span>, dolor sit amet
-          consectetur adipisicing elit. Aliquam officiis sequi incidunt{" "}
-          <span className="text-[#00B3EE]">libero deserunt</span>, nam
-          consequuntur voluptatibus{" "}
-          <span className="text-[#00B3EE]">necessitatibus quibusdam</span>{" "}
-          accusantium deleniti, architecto odio labore dolor quos ab eum
-          molestias dolorem?
+        <p
+          className={`${texts.className} text-text-main dark:text-d-text-main text-sm`}
+        >
+          <span className="text-[#00B3EE]">{t("text1")} </span>
+          {t("text2")} {t("text3")} {t("text5")}{" "}
+          <span className="text-[#00B3EE]">{t("text6")}</span>
         </p>
       </div>
     </>
