@@ -20,7 +20,7 @@ export default function ExampleComponent() {
 
   return (
     <>
-      <div className="bg-main dark:bg-d-main w-[25rem] h-[12rem] rounded-[1.75rem] px-5 py-5 mt-10 mx-10">
+      <div className="w-[25rem] h-[12rem] rounded-[1.75rem] px-5 py-5 mx-10">
         <h4
           className={`${titles.className} text-text-secondary dark:text-text-m-white text-4xl`}
         >

@@ -13,10 +13,7 @@ export default function HomePage({
   setRequestLocale(locale);
   return (
     <main className="h-svh bg-main dark:bg-d-main">
-      <ThemeProvider>
-        <ThemeSelect />
-        <ExampleComponent />
-      </ThemeProvider>
+      <ExampleComponent />
     </main>
   );
 }
