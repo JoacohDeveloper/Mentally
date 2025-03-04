@@ -1,7 +1,9 @@
 {
     "Metadata": {
         "description": "Create a safe space where people can share problems anonymously and receive support from the community and certified psychologists.",
-        "title_rich": "Home"
+        "title_rich": "Home",
+        "create-account-title" : "Create Account",
+        "sign-in-title": "Sign In"
     },
     "Home": {
         "text1": "Create a space",

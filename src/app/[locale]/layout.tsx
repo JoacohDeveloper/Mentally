@@ -5,9 +5,9 @@ import {
   setRequestLocale,
 } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
+import { Link, routing } from "@/i18n/routing";
 import { Be_Vietnam_Pro } from "next/font/google";
-import Link from "next/link";
+
 import "@/app/globals.css";
 import { ThemeProvider } from "@/Providers/ThemeProvider";
 import { ThemeSelect } from "../components/ThemeSelect";
@@ -27,7 +27,10 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
   return {
-    title: `Mentally | ${t("title_rich")}`,
+    title: {
+      template: "Mentally | %s",
+      default: `${t("title_rich")}`,
+    },
     description: t("description"),
   };
 }
@@ -57,24 +60,28 @@ export default async function LocaleLayout({
   return (
     <html lang={await locale}>
       <SessionProvider>
-        <body className={`${textos.className} bg-main dark:bg-d-main `}>
-          <ThemeProvider>
-            <nav className="flex py-2 justify-between px-10">
-              <div className="flex gap-4">
-                <Link href={`${locale}/auth/sign-in`}>Sign In</Link>
-                <Link href={`${locale}/auth/create-account`}>
-                  Create Account
-                </Link>
-                <Link href={`${locale}/auth/sign-out`}>Sign Out</Link>
-              </div>
-              {session?.user && <div>Logged as {session?.user?.name}</div>}
-            </nav>
-            <ThemeSelect />
-            <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={messages}>
+          <body className={`${textos.className} bg-main dark:bg-d-main `}>
+            <ThemeProvider>
+              <nav className="flex py-2 justify-between px-10">
+                <div className="flex gap-4">
+                  <Link locale={await locale} href="/auth/sign-in">
+                    Sign In
+                  </Link>
+                  <Link locale={await locale} href="/auth/create-account">
+                    Create Account
+                  </Link>
+                  <Link locale={await locale} href="/auth/sign-out">
+                    Sign Out
+                  </Link>
+                </div>
+                {session?.user && <div>Logged as {session?.user?.name}</div>}
+              </nav>
+              <ThemeSelect />
               {children}
-            </NextIntlClientProvider>
-          </ThemeProvider>
-        </body>
+            </ThemeProvider>
+          </body>
+        </NextIntlClientProvider>
       </SessionProvider>
     </html>
   );

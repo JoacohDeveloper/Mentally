@@ -13,7 +13,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
       (await cookies()).get("NEXT_LOCALE")?.value ||
       defaultLocale ||
       routing.defaultLocale;
-    console.log(locale);
     //locale = routing.defaultLocale;
   }
 

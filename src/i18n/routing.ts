@@ -6,6 +6,9 @@ export const routing = defineRouting({
   defaultLocale: "en",
   pathnames: {
     "/": "/",
+    "/auth/sign-in": "/auth/sign-in",
+    "/auth/create-account": "/auth/create-account",
+    "/auth/sign-out": "/auth/sign-out",
     "/pathnames": {
       en: "/pathnames",
       es: "/enrutado",

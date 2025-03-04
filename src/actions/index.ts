@@ -1,3 +1,4 @@
 import CreateAccount from "./create-account";
 import SignOut from "./sign-out";
-export { CreateAccount, SignOut };
+import SignIn from "./sign-in";
+export { CreateAccount, SignOut, SignIn };
