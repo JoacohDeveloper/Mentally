@@ -1,6 +1,6 @@
 import { use } from "react";
 import { setRequestLocale } from "next-intl/server";
-import ExampleComponent from "../components/example";
+import ExampleComponent from "../components/home-information";
 export default function HomePage({
   params,
 }: {

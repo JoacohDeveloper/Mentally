@@ -13,6 +13,7 @@ import { ThemeProvider } from "@/Providers/ThemeProvider";
 import { ThemeSelect } from "../components/ThemeSelect";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
+import Navigation from "./components/navigation";
 const textos = Be_Vietnam_Pro({
   weight: ["400", "700"],
   subsets: ["latin"],
@@ -61,23 +62,9 @@ export default async function LocaleLayout({
     <html lang={await locale}>
       <SessionProvider>
         <NextIntlClientProvider messages={messages}>
-          <body className={`${textos.className} bg-main dark:bg-d-main `}>
+          <body className={`${textos.className} overflow-x-hidden bg-main dark:bg-d-main `}>
             <ThemeProvider>
-              <nav className="flex py-2 justify-between px-10">
-                <div className="flex gap-4">
-                  <Link locale={await locale} href="/auth/sign-in">
-                    Sign In
-                  </Link>
-                  <Link locale={await locale} href="/auth/create-account">
-                    Create Account
-                  </Link>
-                  <Link locale={await locale} href="/auth/sign-out">
-                    Sign Out
-                  </Link>
-                </div>
-                {session?.user && <div>Logged as {session?.user?.name}</div>}
-              </nav>
-              <ThemeSelect />
+              <Navigation locale={await locale} user={session?.user}/>
               {children}
             </ThemeProvider>
           </body>
